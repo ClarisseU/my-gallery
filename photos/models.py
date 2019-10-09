@@ -10,8 +10,8 @@ class Image(models.Model):
     def save_image(self):
         self.save()
         
-    def delete_image():
-        pass
+    def delete_image(self):
+        self.delete()
         
     def update_image():
         pass
@@ -30,25 +30,25 @@ class Location(models.Model):
     nameloc = models.CharField(max_length=60)
     images = models.ForeignKey(Image)
     
-    def save_location():
-        pass
+    def save_location(self):
+        self.save()
     
-    def delete_location():
-        pass
+    def delete_location(slef):
+        self.delete()
     
-    def update_location():
-        pass
+    def update_location(self):
+        self.update()
     
 class Category(models.Model):  
     idcat = models.CharField(max_length=60)
     namecat = models.CharField
     images = 
     
-    def save_cat():
-        pass
+    def save_cat(self):
+        self.delete
     
-    def update_cat():
-        pass
+    def update_cat(self):
+        self.update()
     
-    def delete_cat():
-        pass     
+    def delete_cat(self):
+        self.delete()    
