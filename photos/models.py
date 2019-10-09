@@ -6,8 +6,8 @@ class Image(models.Model):
     image = models.ImageField()
     img_name = models.CharField(max_length=60)
     img_description = models.CharField(max_length=60)
-    #category = models.ForeignKey(Category)
-    #location = models.ForeignKey(Location)
+    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location)
     
     def __str__(self):
         return self.image

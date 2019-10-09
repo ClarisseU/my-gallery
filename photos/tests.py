@@ -17,4 +17,19 @@ class ImageTest(TestCase):
         '''
         self.picture.save_image()
         images = Image.objects.all()
-        self.assertTrue(len(images)>0)    
+        self.assertTrue(len(images)>0)   
+        
+class CategoryTest(TestCase):
+    '''
+    class to check the instances and function of category model
+    '''
+    def setUp(self):
+        self.leisure = Category(idcat='123', namecat ='leisure', image ='')    
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.leisure, Category))
+        
+    def test_save_cat(self):
+        self.leisure.save_cat()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)             
