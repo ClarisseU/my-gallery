@@ -25,6 +25,27 @@ class Image(models.Model):
         pass            
     
 class Location(models.Model):
-    pass
+    idloc= models.CharField(max_length=60)
+    nameloc = models.CharField(max_length=60)
+    
+    def save_location():
+        pass
+    
+    def delete_location():
+        pass
+    
+    def update_location():
+        pass
+    
 class Category(models.Model):  
-    pass      
+    idcat = models.CharField(max_length=60)
+    namecat = models.CharField
+    
+    def save_cat():
+        pass
+    
+    def update_cat():
+        pass
+    
+    def delete_cat():
+        pass     
