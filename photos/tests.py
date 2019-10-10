@@ -19,17 +19,17 @@ class ImageTest(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images)>0)   
         
-# class CategoryTest(TestCase):
-#     '''
-#     class to check the instances and function of category model
-#     '''
-#     def setUp(self):
-#         self.leisure = Category( namecat ='leisure', image ='')    
+class CategoryTest(TestCase):
+    '''
+    class to check the instances and function of category model
+    '''
+    def setUp(self):
+        self.leisure = Category( namecat ='leisure', image ='')    
         
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.leisure, Category))
+    def test_instance(self):
+        self.assertTrue(isinstance(self.leisure, Category))
         
-#     def test_save_cat(self):
-#         self.leisure.save_cat()
-#         categories = Category.objects.all()
-#         self.assertTrue(len(categories)>0)             
+    def test_save_cat(self):
+        self.leisure.save_cat()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)             
