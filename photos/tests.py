@@ -1,12 +1,32 @@
 from django.test import TestCase
 from .models import Image, Location, Category
 
+class LocationTest(TestCase):
+    '''
+    a class to test the location instances and its methods
+    '''
+    def setUp(self):
+        self.location = Location(nameloc='kacyiru')
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location, Location))    
+        
+    def test_save_location(self):
+        '''
+        function to check the save method
+        '''
+        self.location.save_location()
+        loc = Location.objects.all()
+        self.assertTrue(len(loc)>0)
+        
+    # def         
+
 class ImageTest(TestCase):
     '''
     a class to test the Image and it's instances
     '''
     def setUp(self):
-        self.picture = Image( image ='', img_name='myPicture', img_description='description')
+        self.picture = Image( image ='image/', img_name='myPicture', img_description='description')
         
     def test_instance(self):
         self.assertTrue(isinstance(self.picture, Image))
@@ -24,12 +44,12 @@ class CategoryTest(TestCase):
     class to check the instances and function of category model
     '''
     def setUp(self):
-        self.leisure = Category( namecat ='leisure', image ='')    
+        self.cat = Category( namecat ='leisure')    
         
     def test_instance(self):
-        self.assertTrue(isinstance(self.leisure, Category))
+        self.assertTrue(isinstance(self.cat, Category))
         
     def test_save_cat(self):
-        self.leisure.save_cat()
+        self.cat.save_cat()
         categories = Category.objects.all()
-        self.assertTrue(len(categories)>0)             
+        self.assertFalse(len(categories)>0)             
