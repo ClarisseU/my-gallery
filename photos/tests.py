@@ -86,4 +86,24 @@ class CategoryTest(TestCase):
     def test_save_cat(self):
         self.cat.save_cat()
         categories = Category.objects.all()
-        self.assertFalse(len(categories)>0)             
+        self.assertTrue(len(categories)>0)  
+        
+    def test_delete_cat(self):
+        '''
+        method to delete a saved category
+        '''
+        self.cat.save_cat()
+        cat = Category.objects.filter(namecat='leisure').first()
+        delete = Category.objects.filter(namecat= cat.namecat).delete()
+        catz = Category.objects.all()
+        self.assertFalse(len(catz) == 1)    
+        
+    def test_update_image(self):
+        '''
+        a method to check the update method
+        '''
+        self.cat.save_cat()
+        cate = Category.objects.filter(namecat='leisure').first()
+        update = Category.objects.filter(namecat= cate.namecat).update(namecat='food')
+        updated = Category.objects.filter(namecat = 'food').first()
+        self.assertNotEqual(cate.namecat, updated.namecat)               
