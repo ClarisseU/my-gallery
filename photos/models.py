@@ -39,14 +39,19 @@ class Image(models.Model):
     def update_image(self):
         self.update()
     
-    def get_image_by_id(id):
-        pass
+    @classmethod
+    def get_image_by_id(cls,id):
+        image = cls.objects.filter(id = id)
+        return image
+        
+    # @classmethod
+    # def search_image(cls,category):
+    #     photos = cls.objects.filter(title__icontains = category)
     
-    def search_image(cls,category):
-        photos = cls.objects.filter(title__icontains = category)
-    
-    def filter_by_location(location):
-        pass            
+    @classmethod
+    def filter_by_location(cls,location):
+        image = cls.objects.filter(location = location) 
+        return image          
     
 class Category(models.Model):  
    
