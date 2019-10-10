@@ -17,7 +17,7 @@ class LocationTest(TestCase):
         '''
         self.location.save_location()
         loc = Location.objects.all()
-        self.assertTrue(len(loc)>0)
+        self.assertTrue(len(loc)>0) 
         
     def  test_delete_location(self):
         self.location.save_location()

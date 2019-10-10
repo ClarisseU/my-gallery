@@ -22,7 +22,7 @@ class Location(models.Model):
         
 class Image(models.Model):
     
-    image = models.ImageField('image/', null=True)
+    image = models.ImageField(upload_to='image/', null=True)
     img_name = models.CharField(max_length=60)
     img_description = models.CharField(max_length=60)
     nameloc = models.ForeignKey(Location, null=True)
@@ -62,7 +62,7 @@ class Category(models.Model):
         return self.namecat
     
     def save_cat(self):
-        self.delete
+        self.save()
     
     def update_cat(self):
         self.update()
