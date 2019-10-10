@@ -19,7 +19,13 @@ class LocationTest(TestCase):
         loc = Location.objects.all()
         self.assertTrue(len(loc)>0)
         
-    # def         
+    def  test_delete_location(self):
+        self.location.save_location()
+        loc = Location.objects.filter(nameloc = 'kacyiru').first()
+        delete = Location.objects.filter(nameloc=loc.nameloc).delete()
+        locs = Location.objects.all()
+        print(locs)
+        self.assertTrue(len(locs)==0)       
 
 class ImageTest(TestCase):
     '''
