@@ -1,0 +1,7 @@
+{%extends 'all-photos/base.html'%} {% block content %} {{block.super}}
+<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+    {% for l in image %}
+    <h1>{{l.nameloc.nameloc}}</h1>
+    <img src='{{l.image.url}}' class="img-responsive"> {%endfor %}
+</div>
+{% endblock %}
