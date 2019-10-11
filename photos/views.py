@@ -19,7 +19,7 @@ def search_results(request):
         searched = Image.search_image(search)
         message = f"{search}"
         
-        return render(request,"all-photos/search.html", {"message":message, "image":searched})
+        return render(request,"all-photos/search.html", {"message":message, "images":searched})
 
     else:
         message = 'You have not searched for any image'
