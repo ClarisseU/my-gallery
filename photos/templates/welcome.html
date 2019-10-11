@@ -9,7 +9,7 @@
 
         <h3>Taken at: {{im.nameloc}}</h3>
         <h4>Category: {{im.category}}</h4>
-        <img src="{{im.image.url}}" class="img-responsive" alt="Image">
+        <a href="{% url 'image' im.id %}" class="btn btn-outline"><img src="{{im.image.url}}" class="img-responsive " alt="Image "></a>
     </div>
 
 </div>{%endfor %} {% endblock%}

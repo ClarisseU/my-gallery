@@ -25,8 +25,9 @@ def search_results(request):
         message = 'You have not searched for any image'
         return render(request, 'all-photos/search.html',{"message":message})    
 
-# def image(request,image):
-   
-#     image= Image.objects.get(image = image)
-    
-#     return render(request,'all-photos/image.html',{'image':image})    
+def image(request,id):
+    try:
+        images= Image.objects.get(id = id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'all-photos/image.html',{'image':images})    
