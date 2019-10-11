@@ -1,12 +1,14 @@
 from django.shortcuts import render
 import datetime as dt
 from django.http import HttpResponse, Http404
-from models import Image
+from .models import Image,Location
 
 # Create your views here.
 
 def welcome(request):
-    return render(request, 'welcome.html')
+    images = Image.objects.all()
+    
+    return render(request, 'welcome.html',{'image':images})
 
 def search_results(request):
     '''
@@ -17,15 +19,14 @@ def search_results(request):
         searched = Image.search_image(search)
         message = f"{search}"
         
-    return render(request,"all-photos/search.html", {"message":message, "image":searched})
+        return render(request,"all-photos/search.html", {"message":message, "image":searched})
 
     else:
         message = 'You have not searched for any image'
         return render(request, 'all-photos/search.html',{"message":message})    
 
-def image(request,image):
-    try:
-        image= Image.objects.get(image = image)
-    except DoesNotExist:
-        raise Http404()
-    return render(request,'all-photos/image.html',{'image':image})    
+# def image(request,image):
+   
+#     image= Image.objects.get(image = image)
+    
+#     return render(request,'all-photos/image.html',{'image':image})    

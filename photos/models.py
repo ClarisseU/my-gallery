@@ -18,6 +18,25 @@ class Location(models.Model):
     
     def update_location(self):
         self.update()
+        
+        
+class Category(models.Model):  
+   
+    namecat = models.CharField(max_length=60)
+    # images = models.ManyToManyField(Image)
+    
+    def __str__(self):
+        return self.namecat
+    
+    def save_cat(self):
+        self.save()
+    
+    def update_cat(self):
+        self.update()
+    
+    def delete_cat(self):
+        self.delete()    
+                
 
         
 class Image(models.Model):
@@ -26,9 +45,10 @@ class Image(models.Model):
     img_name = models.CharField(max_length=60)
     img_description = models.CharField(max_length=60)
     nameloc = models.ForeignKey(Location, null=True)
+    category = models.ForeignKey(Category, null=True)
     
     def __str__(self):
-        return self.image
+        return str(self.image)
     
     def save_image(self):
         self.save()
@@ -53,22 +73,6 @@ class Image(models.Model):
     def filter_by_location(cls,location):
         image = cls.objects.filter(location = location) 
         return image          
-    
-class Category(models.Model):  
-   
-    namecat = models.CharField(max_length=60)
-    images = models.ManyToManyField(Image)
-    
-    def __str__(self):
-        return self.namecat
-    
-    def save_cat(self):
-        self.save()
-    
-    def update_cat(self):
-        self.update()
-    
-    def delete_cat(self):
-        self.delete()    
-        
+    # image
+
 
