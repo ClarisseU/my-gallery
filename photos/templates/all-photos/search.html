@@ -15,9 +15,9 @@
         {% if images %} {% for images in images %}
         <div class="col-sm-6 col-md-3">
             <h1>{{images.category}}</h1>
-            <ol>
+            <ul>
                 <li><img src="{{images.image.url}}" class="img-responsive"></li>
-            </ol>
+            </ul>
         </div>
         {% endfor %} {% endif %}
     </div>

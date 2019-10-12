@@ -6,14 +6,21 @@
         <a class="navbar-brand" href="{% url 'welcome' %}">My Gallery</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'welcome' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'location' location='kacyiru' %}">Location</a>
-
+                <div class="dropdown">
+                    <a class="navbar-brand">Location<i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'location' location='kacyiru' %}">Kacyiru</a>
+                        <a href="{% url 'location' location='kimironko' %}">Kimironko</a>
+                        <a href="{% url 'location' location='Home' %}">Home</a>
+                    </div>
+                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+
             <input class="form-control mr-sm-2" type="search" placeholder="Search" name="image" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                 <i class="glyphicon glyphicon-search"></i>Search</button>
