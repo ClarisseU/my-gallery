@@ -1,3 +1,17 @@
 h1 {
     color: darkcyan;
 }
+
+img {
+    width: 70%;
+    height: 65%;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
