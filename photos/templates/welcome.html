@@ -8,7 +8,8 @@
 
     <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
 
-        <img src="{{im.image.url}}" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}">
+        <img src="{{im.image.url}}" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
+
     </div>
 
     <!-- Modal -->
@@ -27,6 +28,7 @@
                         <p>{{im.img_description}}</p>
                         <p>Taken at: {{im.nameloc}}</p>
                         <p>Category: {{im.category}}</p>
+                        <p><strong>image address:</strong></p><a href="http://127.0.0.1:8000{{im.image.url}}">http://127.0.0.1:8000{{im.image.url}}</a>
                     </div>
 
 

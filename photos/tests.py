@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Image, Location, Category
+import pyperclip
 
 class LocationTest(TestCase):
     '''
@@ -71,7 +72,11 @@ class ImageTest(TestCase):
         update = Image.objects.filter(img_name= image.img_name).update(img_name = 'Picta')
         updated = Image.objects.filter(img_name = 'Picta').first()
         self.assertNotEqual(image.img_name, updated.img_name)
-              
+        
+    def test_get_image_by_id(self):
+        self.picture.save_image()
+        image = Image.get_image_by_id(1)
+        self.assertFalse(len(image) >0)       
         
 class CategoryTest(TestCase):
     '''

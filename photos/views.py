@@ -2,8 +2,7 @@ from django.shortcuts import render
 import datetime as dt
 from django.http import HttpResponse, Http404
 from .models import Image,Location
-
-# Create your views here.
+import pyperclip
 
 def welcome(request):
     images = Image.objects.all()
@@ -36,4 +35,3 @@ def location(request,location):
     image = Image.filter_by_location(location)
     location = Location.objects.all()
     return render(request,'all-photos/location.html',{'location':location, 'image':image})
-       

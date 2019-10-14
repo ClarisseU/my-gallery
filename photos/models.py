@@ -1,12 +1,9 @@
 from django.db import models
 
-# Create your models here.
-
 class Location(models.Model):
    
     nameloc = models.CharField(max_length=60)
    
-    
     def __str__(self):
         return self.nameloc
     
@@ -23,7 +20,6 @@ class Location(models.Model):
 class Category(models.Model):  
    
     namecat = models.CharField(max_length=60)
-    # images = models.ManyToManyField(Image)
     
     def __str__(self):
         return self.namecat
@@ -73,6 +69,7 @@ class Image(models.Model):
     def filter_by_location(cls,location):
         image = cls.objects.filter(nameloc__nameloc__icontains = location) 
         return image          
-    # image
+    
+   
 
 

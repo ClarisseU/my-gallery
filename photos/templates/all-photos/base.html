@@ -9,6 +9,7 @@
     <title> My Gallery </title>
     {% endif %} {% block styles %} {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}"> {% endblock %}
+
     <!-- got the codes from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover -->
     <style>
         dropbtn {
@@ -56,9 +57,7 @@
 </head>
 
 <body>
-    {% include "navbar.html" %} {% block content %}
-    <!-- <h1>Photos of {{date|date:"l d-F Y"}}</h1>  -->
-    {%endblock%} {% block scripts %}
+    {% include "navbar.html" %} {% block content %} {%endblock%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %} {% endblock %}
 
